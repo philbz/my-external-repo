@@ -1,6 +1,7 @@
 image: alpine
 
 only_index:
+  stage: test
   script: echo "only_index is running"
   only:
     refs:
@@ -9,9 +10,14 @@ only_index:
       - index.txt
 
 only_readme:
+  stage: test
   script: echo "only_readme is running"
   only:
     refs:
       - external_pull_request
     changes:
       - README.md
+
+always:
+  stage: test
+  script: echo "running"
