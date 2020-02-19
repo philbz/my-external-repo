@@ -1,0 +1,17 @@
+image: alpine
+
+only_index:
+  script: echo "only_index is running"
+  only:
+    refs:
+      - external_pull_request
+    changes:
+      - index.txt
+
+only_readme:
+  script: echo "only_readme is running"
+  only:
+    refs:
+      - external_pull_request
+    changes:
+      - README.md
